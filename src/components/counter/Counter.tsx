@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import styles from "./Counter.module.css";
 export default function Counter() {
   const [value, changeValue] = useLocalStorage<number>({
@@ -13,7 +13,7 @@ export default function Counter() {
   return (
     <div className={styles.counter}>
       <h2>Value</h2>
-      <div>{value}</div>
+      <h3>{value}</h3>
       <button onClick={() => changeValue(value + 1)} className={styles.add}>
         Add
       </button>

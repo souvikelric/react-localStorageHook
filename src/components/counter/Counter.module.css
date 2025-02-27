@@ -1,13 +1,15 @@
 .counter {
   margin-top: 30px;
-  font-size: 8vw;
+  font-size: 4vw;
   padding: 2vw;
   text-align: center;
+  width: 50%;
+  border-radius: 20px;
   background-color: lightblue;
   color: rgb(9, 16, 49);
 
   & h3 {
-    font-size: 10vw;
+    font-size: 7vw;
     color: rgb(32, 89, 108);
   }
 
