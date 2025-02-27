@@ -1,0 +1,30 @@
+.counter {
+  margin-top: 30px;
+  font-size: 8vw;
+  padding: 2vw;
+  text-align: center;
+  background-color: lightblue;
+  color: rgb(9, 16, 49);
+
+  & h2 {
+    color: rgb(26, 32, 33);
+  }
+
+  & button {
+    outline: none;
+    border: none;
+    padding: 0.7vw 1vw;
+    margin: 20px;
+    border-radius: 20px;
+    font-size: 2vw;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: white;
+      color: darkblue;
+    }
+  }
+}
