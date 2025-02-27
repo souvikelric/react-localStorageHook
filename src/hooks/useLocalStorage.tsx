@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface localStorageProps<T> {
   key: string;
@@ -10,13 +10,12 @@ function useLocalStorage<T>({ key, initialValue }: localStorageProps<T>) {
   const parsedValue = storedValue ? JSON.parse(storedValue) : initialValue;
   const [value, setValue] = useState<T>(parsedValue);
 
-  useEffect(() => {
-    if (value !== undefined) {
-      localStorage.setItem(key, JSON.stringify(value));
-    }
-  }, [key, value]);
+  const changeValue = (val: T) => {
+    setValue(val);
+    localStorage.setItem(key, JSON.stringify(val));
+  };
 
-  return [value, setValue];
+  return [value, changeValue] as const;
 }
 
 export default useLocalStorage;
