@@ -1,3 +1,4 @@
+import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import styles from "./todoList.module.css";
 
@@ -14,10 +15,23 @@ const dummyItems: Item[] = [
 ];
 
 export default function TodoList() {
-  const [value, _setValue] = useLocalStorage<Item[]>({
+  const [value, setValue] = useLocalStorage<Item[]>({
     key: "todos",
     initialValue: dummyItems,
   });
+
+  const [input, setInput] = useState();
+
+  const handleChange = (e: any) => {
+    setInput(e.target.value);
+  };
+
+  const AddTodo = () => {
+    if (input !== undefined) {
+      const newItem: Item = { id: value[value.length - 1].id, text: input };
+      setValue((prev: Item[]) => [...prev, newItem]);
+    }
+  };
   return (
     <div className={styles.todolist}>
       {value.map((item: Item) => (
@@ -25,8 +39,15 @@ export default function TodoList() {
           {item.text}
         </span>
       ))}
-      <input type="text" className={styles.todoInput} />
-      <button className={styles.todoButton}>Add Todo</button>
+      <input
+        value={input}
+        onChange={handleChange}
+        type="text"
+        className={styles.todoInput}
+      />
+      <button onClick={AddTodo} className={styles.todoButton}>
+        Add Todo
+      </button>
     </div>
   );
 }

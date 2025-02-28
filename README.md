@@ -12,3 +12,6 @@ Adding some comments for what will be covered in this hook:
 1. Have tested on a simple number state : works
 2. Have tested on a simple string state : works
 3. Checking on an Array and Object state
+   Checked a todoList element being stored: works
+   Made a change in the hook file
+   No need for changing the state through a separate function, pass setState directly through the return tuple
