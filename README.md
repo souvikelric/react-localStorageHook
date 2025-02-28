@@ -15,3 +15,4 @@ Adding some comments for what will be covered in this hook:
    Checked a todoList element being stored: works
    Made a change in the hook file
    No need for changing the state through a separate function, pass setState directly through the return tuple
+4. Added delete functionality to todo items and on page reload state still persists

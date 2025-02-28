@@ -20,7 +20,7 @@ export default function TodoList() {
     initialValue: dummyItems,
   });
 
-  const [input, setInput] = useState();
+  const [input, setInput] = useState<string>("");
 
   const handleChange = (e: any) => {
     setInput(e.target.value);
@@ -28,15 +28,26 @@ export default function TodoList() {
 
   const AddTodo = () => {
     if (input !== undefined) {
-      const newItem: Item = { id: value[value.length - 1].id, text: input };
+      const newId = value.length > 0 ? value[value.length - 1].id + 1 : 1;
+      const newItem: Item = { id: newId, text: input };
       setValue((prev: Item[]) => [...prev, newItem]);
+      setInput("");
     }
   };
+
+  const deleteTodo = (id: number) => {
+    const newItems: Item[] = value.filter((item) => item.id !== id);
+    setValue(newItems);
+  };
+
   return (
     <div className={styles.todolist}>
       {value.map((item: Item) => (
         <span className={styles.item} key={item.id}>
           {item.text}
+          <button onClick={() => deleteTodo(item.id)} className={styles.delete}>
+            Delete
+          </button>
         </span>
       ))}
       <input
