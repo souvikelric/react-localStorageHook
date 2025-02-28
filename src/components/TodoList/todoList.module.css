@@ -1,5 +1,5 @@
 .todolist {
-  height: 50vh;
+  min-height: 50vh;
   width: 50%;
   background-color: burlywood;
   color: rgb(59, 39, 12);
