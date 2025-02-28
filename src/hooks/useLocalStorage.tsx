@@ -24,12 +24,17 @@ function useLocalStorage<T>({
     storage.setItem(key, JSON.stringify(value));
   }, [value]);
 
+  // will remove the item from localstorage and set the value back to the initial state
   const resetItem = (key: string) => {
     storage.removeItem(key);
     setValue(initialValue);
   };
 
-  return [value, setValue, resetItem] as const;
+  const clearAllItems = () => {
+    storage.clear();
+  };
+
+  return [value, setValue, resetItem, clearAllItems] as const;
 }
 
 export default useLocalStorage;
