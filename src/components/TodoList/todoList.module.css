@@ -1,7 +1,6 @@
 .todolist {
-  margin-top: 20px;
   height: 50vh;
-  width: 40%;
+  width: 50%;
   background-color: burlywood;
   color: rgb(59, 39, 12);
   display: flex;
@@ -9,6 +8,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  border-radius: 10px;
   padding: 10px;
 
   & .item {

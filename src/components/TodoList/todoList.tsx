@@ -25,6 +25,8 @@ export default function TodoList() {
           {item.text}
         </span>
       ))}
+      <input type="text" className={styles.todoInput} />
+      <button className={styles.todoButton}>Add Todo</button>
     </div>
   );
 }
