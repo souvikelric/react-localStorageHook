@@ -19,3 +19,5 @@ Adding some comments for what will be covered in this hook:
    Made a change in the hook file
    No need for changing the state through a separate function, pass setState directly through the return tuple
 4. Added delete functionality to todo items and on page reload state still persists
+5. Tested RemoveItem Function : works
+6. Tested ClearAllItems Function : working but the particular component does not refresh state on its own.

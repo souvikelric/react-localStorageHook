@@ -24,6 +24,15 @@ function useLocalStorage<T>({
     storage.setItem(key, JSON.stringify(value));
   }, [value]);
 
+  useEffect(() => {
+    const handleStorageClear = () => {
+      setValue(initialValue);
+    };
+    window.addEventListener("storageCleared", handleStorageClear);
+    return () =>
+      window.removeEventListener("storageCleared", handleStorageClear);
+  });
+
   // will remove the item from localstorage and set the value back to the initial state
   const resetItem = (key: string) => {
     storage.removeItem(key);
@@ -32,6 +41,7 @@ function useLocalStorage<T>({
 
   const clearAllItems = () => {
     storage.clear();
+    window.dispatchEvent(new Event("storageCleared"));
   };
 
   return [value, setValue, resetItem, clearAllItems] as const;
