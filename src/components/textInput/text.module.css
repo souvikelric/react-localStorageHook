@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
   & input {
     margin-top: 40px;
@@ -10,5 +11,10 @@
     width: 40%;
     padding: 20px 10px;
     font-size: 2vw;
+  }
+
+  & button {
+    cursor: pointer;
+    margin-top: 20px;
   }
 }
