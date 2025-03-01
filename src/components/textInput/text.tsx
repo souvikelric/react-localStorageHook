@@ -1,7 +1,11 @@
 import useLocalStorage from "../../hooks/useLocalStorage";
 import styles from "./text.module.css";
 export default function TextInput() {
-  const [text, setText, _resetItem, clearAllItems] = useLocalStorage<string>({
+  const {
+    value: text,
+    setValue: setText,
+    clearAllItems,
+  } = useLocalStorage<string>({
     key: "text",
     initialValue: "This is the default Value",
   });

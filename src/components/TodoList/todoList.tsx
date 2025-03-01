@@ -15,7 +15,7 @@ const dummyItems: Item[] = [
 ];
 
 export default function TodoList() {
-  const [value, setValue, resetItems] = useLocalStorage<Item[]>({
+  const { value, setValue, resetItem } = useLocalStorage<Item[]>({
     key: "todos",
     initialValue: dummyItems,
   });
@@ -59,7 +59,7 @@ export default function TodoList() {
       <button onClick={AddTodo} className={styles.todoButton}>
         Add Todo
       </button>
-      <button onClick={() => resetItems("todos")} className={styles.todoButton}>
+      <button onClick={() => resetItem("todos")} className={styles.todoButton}>
         Reset Todos
       </button>
     </div>

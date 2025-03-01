@@ -24,6 +24,7 @@ function useLocalStorage<T>({
     storage.setItem(key, JSON.stringify(value));
   }, [value]);
 
+  // runs when the the new customEvent is dispatched
   useEffect(() => {
     const handleStorageClear = () => {
       setValue(initialValue);
@@ -39,12 +40,14 @@ function useLocalStorage<T>({
     setValue(initialValue);
   };
 
+  // clear all items from localStorage
+  // dispatch a new custom Event
   const clearAllItems = () => {
     storage.clear();
     window.dispatchEvent(new Event("storageCleared"));
   };
 
-  return [value, setValue, resetItem, clearAllItems] as const;
+  return { value, setValue, resetItem, clearAllItems } as const;
 }
 
 export default useLocalStorage;
