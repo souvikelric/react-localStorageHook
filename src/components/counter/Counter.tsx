@@ -1,4 +1,4 @@
-import useLocalStorage from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../../hooks/index";
 import styles from "./Counter.module.css";
 export default function Counter() {
   const { value, setValue: changeValue } = useLocalStorage<number>({

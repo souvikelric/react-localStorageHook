@@ -1,4 +1,4 @@
-import useLocalStorage from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import styles from "./text.module.css";
 export default function TextInput() {
   const {

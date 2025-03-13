@@ -50,4 +50,4 @@ function useLocalStorage<T>({
   return { value, setValue, resetItem, clearAllItems } as const;
 }
 
-export default useLocalStorage;
+export { useLocalStorage };

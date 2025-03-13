@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import styles from "./todoList.module.css";
 
 type Item = {
