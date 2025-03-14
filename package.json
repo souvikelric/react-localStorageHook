@@ -1,7 +1,9 @@
 {
-  "name": "react-localstorage",
-  "private": true,
+  "name": "@souvikelric/uselocalstorage-hook",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A React hook for syncing localstorage with state",
   "type": "module",
   "types": "dist/index.d.ts",
@@ -14,7 +16,6 @@
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {},
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
