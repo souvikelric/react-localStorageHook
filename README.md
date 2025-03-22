@@ -7,3 +7,7 @@
 5. Added 2 functions to removeItem and clearAllItems to clear storage
 6. RemoveItem is a function to remove a particular item from the loca storage and set it back to the initial state. This function takes in a key as a string
 7. ClearAllItems is a function that completely clears the local/session storage memory
+
+## Added LocalStorage Helper to be used outside functional Components
+
+## Can now be used with redux and other state managers
