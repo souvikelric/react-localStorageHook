@@ -18,29 +18,44 @@ A lightweight React hook and helper utility for syncing `localStorage` or `sessi
 npm install use-local-storage-sync
 # or
 yarn add use-local-storage-sync
+```
 
-#🔧 Usage
+## 🔧 Usage
 
-##useLocalStorage Hook
+## useLocalStorage Hook
 
-import { useLocalStorage } from 'use-local-storage-sync';
+```javascript
+import { useLocalStorage } from "use-local-storage-sync";
 
 function Counter() {
   const { value, setValue, resetItem, clearAllItems } = useLocalStorage({
-    key: 'counter',
+    key: "counter",
     initialValue: 0,
-    storageType: 'local', // or 'session'
+    storageType: "local", // or 'session'
   });
 
   return (
     <div>
       <h2>Counter: {value}</h2>
       <button onClick={() => setValue(value + 1)}>Increment</button>
-      <button onClick={() => resetItem('counter')}>Reset</button>
+      <button onClick={() => resetItem("counter")}>Reset</button>
       <button onClick={clearAllItems}>Clear All</button>
     </div>
   );
 }
+```
+
+## 🔘 Selective Syncing
+
+**Only persist specific fields from a larger object using the include option.**
+
+```javascript
+const { value, setValue } = useLocalStorage({
+  key: "user",
+  initialValue: { name: "", email: "", token: "" },
+  include: ["name", "email"], // token is not stored in localStorage
+});
+This helps avoid storing sensitive data (like tokens) or reduce storage size
 ```
 
 ## ✅ Parameters

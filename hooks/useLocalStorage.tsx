@@ -6,12 +6,14 @@ interface localStorageProps<T> {
   key: string;
   initialValue: T;
   storageType?: storageType;
+  include?: (keyof T)[];
 }
 
 function useLocalStorage<T>({
   key,
   initialValue,
   storageType = "local",
+  include,
 }: localStorageProps<T>) {
   const [value, setValue] = useState<T>(() => {
     const storage = storageType === "local" ? localStorage : sessionStorage;
@@ -21,7 +23,13 @@ function useLocalStorage<T>({
   });
   const storage = storageType === "local" ? localStorage : sessionStorage;
   useEffect(() => {
-    storage.setItem(key, JSON.stringify(value));
+    const toStore = include
+      ? include.reduce((obj, key) => {
+          obj[key] = value[key];
+          return obj;
+        }, {} as Partial<T>)
+      : value;
+    storage.setItem(key, JSON.stringify(toStore));
   }, [value]);
 
   // runs when the the new customEvent is dispatched
